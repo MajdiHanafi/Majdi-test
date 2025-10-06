@@ -1,0 +1,37 @@
+kind: AIchorManifest
+apiVersion: 0.2.2
+
+builder:
+  image: image
+  dockerfile: ./build/Dockerfile
+  context: .
+
+spec:
+  operator: tf
+  image: image
+  #command: "python3 -u main.py --operator=ray --sleep=300 --tb-write=True"
+  command: >
+    bash src/test_pvc.sh
+
+  tensorboard:
+    enabled: true
+  storage:
+    attachExistingPVCs:
+      - name: test-aws-53cdeea464254100-test-pvc2-48eaa6c4645245c6
+        mountPoint: /mnt/test-aws-53cdeea464254100-test-pvc2-48eaa6c4645245c6
+
+  tensorboard:
+    enabled: true
+
+  types:
+    Worker:
+      count: 1
+      resources:
+        cpus: 1
+        ramRatio: 2
+        shmSizeGB: 0
+        accelerators: # optional
+          gpu:
+            count: 0
+            type: gpu
+            product: nvidia-tesla-t4

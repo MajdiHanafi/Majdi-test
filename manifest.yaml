@@ -10,19 +10,15 @@ spec:
   operator: jax
   image: image
   command: "python3 -u main.py --operator=jax --sleep=300 --tb-write=True"               
-  tensorboard:
-    enabled: true
-    
-
-  tensorboard:
+  tensorboard: # optional, disabled by default
     enabled: true
 
+  timeout: "1w 2d 5h 6m2 0s" # optional, in weeks (w), days (d), hours (h), minutes (m) and seconds (s)
   types:
     worker:
       count: 1
       resources:
         cpus: 1
-        activeDeadlineSeconds: 12
         ramRatio: 2 
         shmSizeGB: 0
         accelerators: # optional

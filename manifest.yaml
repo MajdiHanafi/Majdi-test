@@ -13,7 +13,7 @@ spec:
   tensorboard: # optional, disabled by default
     enabled: true
 
-  timeout: "1w 2d 5h 6m2 0s" # optional, in weeks (w), days (d), hours (h), minutes (m) and seconds (s)
+  timeout: "1w 2d 5h 6m 20s" # optional, in weeks (w), days (d), hours (h), minutes (m) and seconds (s)
   types:
     worker:
       count: 1

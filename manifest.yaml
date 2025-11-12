@@ -22,6 +22,7 @@ spec:
       count: 1
       resources:
         cpus: 1
+        activeDeadlineSeconds: 12
         ramRatio: 2 
         shmSizeGB: 0
         accelerators: # optional
